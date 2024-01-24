@@ -1,23 +1,23 @@
 import "./main.css";
 
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
+import { Bookings } from "./pages/Bookings";
+import { Home } from "./pages/Home/index";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
+  },
+  {
+    path: "/bookings",
+    element: <Bookings />,
   },
 ]);
 
 const container = document.getElementById("root");
 const root = createRoot(container as HTMLDivElement);
 
-root.render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
+root.render(<RouterProvider router={router} />);
