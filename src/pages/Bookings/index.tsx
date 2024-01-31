@@ -1,3 +1,5 @@
+import { List } from "@/components/List";
+
 export const Bookings = () => {
-  return <h1>My bookings</h1>;
+  return <List type="bookings"></List>;
 };

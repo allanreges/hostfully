@@ -1,7 +1,9 @@
-import { useEffect } from "react";
-
-import { store } from "@/store/store";
+import { List } from "@/components/List";
 
 export const Home = () => {
-  return <div>hello</div>;
+  return (
+    <>
+      <List type="locations"></List>
+    </>
+  );
 };
