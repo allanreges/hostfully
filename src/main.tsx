@@ -1,19 +1,37 @@
 import "./main.css";
 
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
+import { BookModal } from "./components/BookModal";
+import { Header } from "./components/Header";
 import { Bookings } from "./pages/Bookings";
 import { Home } from "./pages/Home/index";
 
+const Layout = () => {
+  return (
+    <>
+      <Header />
+      <BookModal />
+      <Outlet />
+    </>
+  );
+};
+
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/bookings",
-    element: <Bookings />,
+    path: "",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "bookings",
+        element: <Bookings />,
+      },
+    ],
   },
 ]);
 
