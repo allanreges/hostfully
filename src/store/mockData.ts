@@ -1,3 +1,13 @@
+import Location1 from "@/assets/location-01.jpg";
+import Location2 from "@/assets/location-02.jpg";
+import Location3 from "@/assets/location-03.jpg";
+import Location4 from "@/assets/location-04.jpg";
+import Location5 from "@/assets/location-05.jpg";
+import Location6 from "@/assets/location-06.jpg";
+import Location7 from "@/assets/location-07.jpg";
+import Location8 from "@/assets/location-08.jpg";
+import Location9 from "@/assets/location-09.jpg";
+
 import { Location } from "../types/types";
 
 export const data: Location[] = [
@@ -7,7 +17,7 @@ export const data: Location[] = [
     price: 200,
     name: "Luxurious Apartment in Manhattan",
     type: "Apartment",
-    image: "https://example.com/image1.jpg",
+    image: Location1,
     reservations: [],
     details:
       "Spacious and modern apartment in the heart of Manhattan, perfect for a luxurious stay.",
@@ -18,7 +28,7 @@ export const data: Location[] = [
     price: 150,
     name: "Cozy House in Hollywood Hills",
     type: "House",
-    image: "https://example.com/image2.jpg",
+    image: Location2,
     reservations: [],
     details:
       "Charming house nestled in the Hollywood Hills, offering a cozy retreat with scenic views.",
@@ -29,7 +39,7 @@ export const data: Location[] = [
     price: 180,
     name: "Oceanfront Condo with Stunning Views",
     type: "Condo",
-    image: "https://example.com/image3.jpg",
+    image: Location3,
     reservations: [],
     details:
       "Elegant condo with direct ocean views, ideal for those seeking a beachfront escape.",
@@ -40,7 +50,7 @@ export const data: Location[] = [
     price: 120,
     name: "Downtown Loft with City Skyline Views",
     type: "Loft",
-    image: "https://example.com/image4.jpg",
+    image: Location4,
     reservations: [],
     details:
       "Modern loft in downtown Chicago offering panoramic views of the city skyline.",
@@ -51,7 +61,7 @@ export const data: Location[] = [
     price: 250,
     name: "Modern Penthouse near Golden Gate Bridge",
     type: "Penthouse",
-    image: "https://example.com/image5.jpg",
+    image: Location5,
     reservations: [],
     details:
       "Luxurious penthouse with contemporary design, located near the iconic Golden Gate Bridge.",
@@ -62,7 +72,7 @@ export const data: Location[] = [
     price: 130,
     name: "Family-Friendly Vacation Home in Disney Area",
     type: "House",
-    image: "https://example.com/image6.jpg",
+    image: Location6,
     reservations: [],
     details:
       "Perfect family vacation home near Disney, featuring a spacious and kid-friendly environment.",
@@ -73,7 +83,7 @@ export const data: Location[] = [
     price: 180,
     name: "Luxury Suite on the Strip",
     type: "Suite",
-    image: "https://example.com/image7.jpg",
+    image: Location7,
     reservations: [],
     details:
       "Extravagant suite located on the famous Las Vegas Strip, providing a luxurious experience.",
@@ -84,21 +94,10 @@ export const data: Location[] = [
     price: 160,
     name: "Charming Cottage in Pike Place Market",
     type: "Cottage",
-    image: "https://example.com/image8.jpg",
+    image: Location8,
     reservations: [],
     details:
       "Quaint cottage in the heart of Pike Place Market, offering a charming and peaceful stay.",
-  },
-  {
-    id: "d5d6fb6a-d06f-471f-8f48-014c7124b75b",
-    location: "Austin, TX",
-    price: 140,
-    name: "Eclectic Studio in Artsy East Austin",
-    type: "Studio",
-    image: "https://example.com/image9.jpg",
-    reservations: [],
-    details:
-      "Artistic studio in the vibrant East Austin neighborhood, perfect for a creative getaway.",
   },
   {
     id: "ae8548a7-0e2a-4aa6-8e04-8d8f75d297d3",
@@ -106,7 +105,7 @@ export const data: Location[] = [
     price: 200,
     name: "Mountain View Cabin near Red Rocks",
     type: "Cabin",
-    image: "https://example.com/image10.jpg",
+    image: Location9,
     reservations: [],
     details:
       "Cozy cabin with breathtaking mountain views, located near the iconic Red Rocks Amphitheatre.",
