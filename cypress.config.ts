@@ -4,6 +4,9 @@ import path from "path";
 
 export default defineConfig({
   video: false,
+  viewportWidth: 1000,
+  viewportHeight: 900,
+
   e2e: {
     // `on` is used to hook into various events Cypress emits
     // `config` is the resolved Cypress config
@@ -20,5 +23,12 @@ export default defineConfig({
       return config;
     },
     baseUrl: "http://localhost:3000",
+  },
+
+  component: {
+    devServer: {
+      framework: "react",
+      bundler: "vite",
+    },
   },
 });
