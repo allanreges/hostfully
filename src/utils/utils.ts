@@ -1,20 +1,61 @@
-import { Booking } from "@/types/types";
+import { DateRange as DateRangeProps } from "@mui/x-date-pickers-pro";
+import dayjs from "dayjs";
+import isBetween from "dayjs/plugin/isBetween";
 
-export const createBooking = (booking: Booking, bookingsState: Booking[]) => {
-  return [...bookingsState, booking];
-};
+import { DateRange as DateRangeTypes, Location } from "@/types/types";
 
-export const editBooking = (
-  updatedBooking: Booking,
-  bookingsState: Booking[]
+dayjs.extend(isBetween);
+
+export const getTotalPrice = (
+  start: Date | undefined,
+  end: Date | undefined,
+  price: number
 ) => {
-  const index = bookingsState.findIndex(booking => {
-    return booking.id === updatedBooking.id;
-  });
-  bookingsState[index] = updatedBooking;
-  return bookingsState;
+  if (end) {
+    const days = dayjs(end).diff(start, "days") + 1;
+    return price * days;
+  }
+  return price;
 };
 
-export const deleteBooking = (id: string, bookingState: Booking[]) => {
-  return bookingState.filter((booking: Booking) => booking.id !== id);
+export const getNumberOfDays = (start?: Date, end?: Date) => {
+  return end ? dayjs(end).diff(start, "days") + 1 : 0;
+};
+
+export const checkOverlaps = (
+  value: DateRangeProps<dayjs.Dayjs>,
+  activeLocation: Location
+) => {
+  let isOverlap = false;
+  const start = value[0]?.toDate();
+  const end = value[1]?.toDate();
+  if (start && end) {
+    activeLocation.reservations.forEach(reservation => {
+      const checkForOverlap = dayjs(reservation.startDate).isBetween(
+        start,
+        end,
+        "day",
+        "[]"
+      );
+      if (checkForOverlap) {
+        isOverlap = true;
+      }
+    });
+  }
+  return isOverlap;
+};
+
+export const shouldDisableDays = (
+  day: dayjs.Dayjs,
+  activeLocation: Location
+) => {
+  let check = false;
+  activeLocation.reservations.forEach(reservation => {
+    if (
+      day.isBetween(reservation.startDate, reservation.endDate, "day", "[]")
+    ) {
+      check = true;
+    }
+  });
+  return check;
 };
