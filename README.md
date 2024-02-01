@@ -1,90 +1,105 @@
-# React TypeScript template with Vite
+# Hostfully App
 
-This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) boilerplate built with [Vite](https://vitejs.dev).
+Hostfully app allows you to create, edit and delete reservations on a set of locations.
 
-## What's inside?
+## Screenshots
 
-- [ReactJS](https://reactjs.org)
-- [Vite](https://vitejs.dev)
-- [TypeScript](https://www.typescriptlang.org)
-- [Jest](https://jestjs.io)
-- [Testing Library](https://testing-library.com)
-- [Cypress](https://www.cypress.io)
-- [ESLint](https://eslint.org)
-- [Prettier](https://prettier.io)
-- [Polyfills](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy#readme)
+![App Screenshot](https://i.imgur.com/epsgIHH.jpeg)
 
-## Getting started
+![App Screenshot](https://i.imgur.com/Dllcm2v.jpeg)
 
-1. Create the project.
+## System Design
 
-   ```bash
-   npx degit fabien-ml/react-ts-vite-template my-app
-   ```
+The Project was built on top of 3 main data pilars =>
 
-2. Access the project directory.
+#### Locations is a list of possible locations where the user can create a booking.
 
-   ```bash
-   cd my-app
-   ```
+    type Location = {
+    id: string;
+    location: string;
+    price: number;
+    name: string;
+    type: string;
+    reservations: Reservation[];
+    image: string;
+    details: string;
+    };
 
-3. Initialize a git repository.
+#### Bookings is a list of the bookings the user has created, the user should be able to edit and delete items from that list.
 
-   ```bash
-   git init
-   ```
+    type Booking = {
+    id: string;
+    location: string;
+    startDate?: Date;
+    dailyPrice: number;
+    name: string;
+    endDate?: Date;
+    price: number;
+    image: string;
+    numberOfDays: number;
+    locationId: string;
+    };
 
-4. Install dependencies.
+#### Reservation is a list that lives inside of each location. The purpose of that list is to avoid overlaps between different bookings.
 
-   ```bash
-   npm install
-   ```
+    type Reservation = {
+    id: string;
+    startDate?: Date;
+    endDate?: Date;
+    };
 
-5. Start dev server with hot reload at http://localhost:3000.
-   ```bash
-   npm run dev
-   ```
+## Tech Stack
 
-## Recommended VS Code extensions
+**Vite/React**: Vite has great performance and it's very simple to setup. In addition React don't recommend using Create React App anymore.
 
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+**Store**: Zustand is a light weight library that has it's implementation similiar to Redux, but with less boilerplate. A great benefit from using it is that the global state don't need to be wrapped around the app and you can trigger actions without dispatch functions.
 
-## Other commands
+**Styled Components**: Great tool for handling css with the power of JS to add dynamic values and props.
 
-### Lint commands
+**Material UI**: It was added to handle more complex components like DatePickers, Toasters and Modals.
+
+**Daysjs**: Very light weight library that was added to handle Dates helpers.
+
+**Jest**: Was used to cover tests for storage, helpers and rendering components
+
+**Jest**: Was used to run a test suit that covers all the 3 possible operations ( create, edit, delete) and also check for booking overlap validation.
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run lint
+  git clone https://github.com/allanreges/hostfully
 ```
 
-### Build commands
+Go to the project directory
 
 ```bash
-npm run build
+  cd my-project
 ```
 
-### Run the app in production mode at http://localhost:3000.
+Install dependencies
 
 ```bash
-npm run serve
+  npm install
 ```
 
-### Test commands
+Start the server
 
-- Run unit tests and watch
-  ```bash
+```bash
+  npm run dev
+```
+
+## Running Tests
+
+To run unit tests: run the following command:
+
+```bash
   npm run test:unit
-  ```
-- Run unit tests with coverage
-  ```bash
-  npm run test:unit:coverage
-  ```
-- Run e2e tests
-  ```bash
+```
+
+To run e2e tests: run the following command:
+
+```bash
   npm run test:e2e
-  ```
-
-## License
-
-This project is licensed under the MIT License.
+```
