@@ -86,8 +86,10 @@ Install dependencies
 
 Start the server
 
+Start dev server with hot reload at http://localhost:3000.
+
 ```bash
-  npm run dev
+npm run dev
 ```
 
 ## Running Tests
