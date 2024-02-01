@@ -62,7 +62,7 @@ The Project was built on top of 3 main data pilars =>
 
 **Jest**: Was used to cover tests for storage, helpers and rendering components
 
-**Jest**: Was used to run a test suit that covers all the 3 possible operations ( create, edit, delete) and also check for booking overlap validation.
+**Cypress**: Was used to run a test suit that covers all the 3 possible operations ( create, edit, delete) and also check for booking overlap validation.
 
 ## Run Locally
 
