@@ -1,5 +1,4 @@
 import { Alert, Snackbar } from "@mui/material";
-import dayjs from "dayjs";
 import { useState } from "react";
 
 import { store } from "@/store/store";
@@ -11,6 +10,7 @@ import { EditBookingModal } from "./EditBookingModal";
 export const BookModal = () => {
   const {
     handleModal,
+    bookModal,
     activeLocation,
     activeBooking,
     setActiveBooking,
@@ -53,6 +53,7 @@ export const BookModal = () => {
           dateRange={dateRange}
           setDateRange={setDateRange}
           activeLocation={activeLocation}
+          bookModal={bookModal}
         />
       );
     }
@@ -66,6 +67,7 @@ export const BookModal = () => {
           handleCloseModal={handleCloseModal}
           dateRange={dateRange}
           setDateRange={setDateRange}
+          bookModal={bookModal}
         />
       );
     }
@@ -77,7 +79,7 @@ export const BookModal = () => {
       <Snackbar
         open={isSuccess.open}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
         onClose={() => setIsSuccess({ open: false, message: "" })}
       >
         <Alert

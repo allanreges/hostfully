@@ -5,6 +5,7 @@ import { DateRange } from "@/components/DateRange";
 import { store } from "@/store/store";
 import {
   Booking,
+  BookModal,
   DateRange as DateRangeTypes,
   Location,
   Toaster,
@@ -29,6 +30,7 @@ type EditBookingModal = {
   overlapError: boolean;
   setOverlapError: (value: boolean) => void;
   setDateRange: ({ startDate, endDate }: DateRangeTypes) => void;
+  bookModal: BookModal;
 };
 
 export const EditBookingModal: React.FC<EditBookingModal> = ({
@@ -40,11 +42,9 @@ export const EditBookingModal: React.FC<EditBookingModal> = ({
   overlapError,
   setOverlapError,
   setDateRange,
+  bookModal,
 }) => {
-  const { handleModal, editBooking, editReservation, bookModal } = store(
-    state => state
-  );
-  console.log(activeBooking);
+  const { handleModal, editBooking, editReservation } = store(state => state);
   const handelEditBooking = () => {
     const booking = {
       ...activeBooking,
@@ -113,6 +113,7 @@ export const EditBookingModal: React.FC<EditBookingModal> = ({
             <Button
               disabled={!dateRange.endDate || overlapError}
               variant="contained"
+              data-testid="save-button"
               onClick={handelEditBooking}
             >
               Save

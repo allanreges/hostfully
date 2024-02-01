@@ -51,7 +51,7 @@ export const DateRange: React.FC<DateType> = ({
             textField: {
               required: true,
               error: overlapError,
-              name: "date-picker",
+              name: `date-picker`,
               helperText: overlapError
                 ? "Your reservation is overlapping with another reservation, please select a new date"
                 : "",

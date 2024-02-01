@@ -20,5 +20,6 @@ export const EmptyStateContainer = styled.div`
   h2 {
     font-weight: 600;
     margin-top: 16px;
+    tex-align: center;
   }
 `;

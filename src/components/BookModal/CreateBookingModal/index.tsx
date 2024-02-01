@@ -3,7 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 
 import { DateRange } from "@/components/DateRange";
 import { store } from "@/store/store";
-import { DateRange as DateRangeTypes, Location, Toaster } from "@/types/types";
+import {
+  BookModal,
+  DateRange as DateRangeTypes,
+  Location,
+  Toaster,
+} from "@/types/types";
 import { getNumberOfDays, getTotalPrice } from "@/utils/utils";
 
 import {
@@ -23,10 +28,12 @@ type CreateBookingModal = {
   overlapError: boolean;
   setOverlapError: (value: boolean) => void;
   setDateRange: ({ startDate, endDate }: DateRangeTypes) => void;
+  bookModal: BookModal;
 };
 
 export const CreateBookingModal: React.FC<CreateBookingModal> = ({
   activeLocation,
+  bookModal,
   dateRange,
   handleCloseModal,
   setIsSuccess,
@@ -34,7 +41,7 @@ export const CreateBookingModal: React.FC<CreateBookingModal> = ({
   setOverlapError,
   setDateRange,
 }) => {
-  const { bookModal, createBooking, createReservation } = store(state => state);
+  const { createBooking, createReservation } = store(state => state);
   const handleCreateBooking = () => {
     const booking = {
       id: uuidv4(),
