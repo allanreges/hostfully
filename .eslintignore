@@ -4,6 +4,7 @@ node_modules/
 coverage/
 dist/
 public/
+cypress/
 __mocks__/
 
 commitlint.config.js
